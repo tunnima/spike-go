@@ -1,3 +1,71 @@
+map: https://github.com/tunnima/my-docs
+
+# Installation:
+https://github.com/slince/spike-go/releases
+```text
+tar -zxf spiked.....
+mv linux_amd64* spike
+```
+# Configuration:
+## Server A.A.A.A:
+```text
+./spiked init
+```
+**vi spiked.yaml**
+```text
+host: A.A.A.A
+port: 8001
+users:
+  - username: nira
+    password: irabhaetyeBoomari
+log:
+#  console: true
+  level: warn
+  file: "./spiked.log"
+```
+**And at last:**
+```text
+./spiked --config=./spiked.yaml
+```
+## Client B.B.B.B:
+```text
+./spike init
+```
+**vi spike.yaml**
+```text
+host: A.A.A.A # server host
+port: 8001
+user:
+     username: nira
+     password: irabhaetyeBoomari
+
+log:
+     console: true  # enable console output
+     level: warn  # trace debug info warn error
+     file: ./spike.log # generate log file
+
+tunnels:
+  - protocol: tcp
+    local_port: 4445
+    server_port: 3125
+
+#  - protocol: udp
+#    local_host: 8.8.8.8
+#    local_port: 53
+#    server_port: 6202
+
+#  - protocol: http
+#    local_port: 80
+#    server_port: 6203
+#    headers:
+#      x-spike: yes
+```
+**And at last:**
+```text
+./spike --config=./spike.yaml
+```
+# MAIN
+
 <p align="center">
     <img src="https://raw.githubusercontent.com/slince/spike/master/resources/logo.png" width="200"/>
 </p>
